@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for file in *; do
+select file in *; do
 
     echo -en "\u001b[34;1m Add $file? (y/n) \u001b[0m"
     read -r input
