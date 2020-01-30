@@ -1,5 +1,6 @@
 #!/bin/bash
 
+PS3="Enter file number: "
 select file in *; do
 
     echo -en "\u001b[34;1m Add $file? (y/n) \u001b[0m"
