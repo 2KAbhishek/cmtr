@@ -27,5 +27,7 @@ To install commiter, follow these steps:
 ## Using committer
 
 ```bash
-committer
+committer # SHows interactive file picker
+committer -a # Automatically commits all files
+
 ```
