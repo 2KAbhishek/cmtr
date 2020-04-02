@@ -1,5 +1,13 @@
 #!/bin/bash
 
+if  [[ $1 == "-a" ]];
+then
+    for file in *; do
+    git add "$file"
+    echo -e "\u001b[32;1m Added $file \u001b[0m"
+    git commit -m "Add $file"
+    done
+else
 PS3="Enter file number: "
 select file in *; do
 
@@ -23,3 +31,4 @@ select file in *; do
     fi
 
     done
+fi
