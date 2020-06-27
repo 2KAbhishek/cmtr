@@ -1,5 +1,3 @@
-<div align="center">
-
 # committer
 
 ![Size](https://img.shields.io/github/repo-size/2kabhishek/committer?style=plastic&color=0f0&label=Size)
@@ -12,7 +10,6 @@
 
 committer is a tool that allows developers to quickly commit files to git.
 
-</div>
 
 ## Prerequisites
 
@@ -38,5 +35,4 @@ committer # Shows interactive file picker
 committer -a # Automatically commits all files
 ```
 
-Please consider hitting the ⭐ star button if this repo was useful to you, any contributions and suggestions are welcome.
 
