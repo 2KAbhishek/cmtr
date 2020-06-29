@@ -10,12 +10,11 @@
 
 committer is a tool that allows developers to quickly commit files to git.
 
-
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
 
-* You have installed `git`
+- You have installed `git`
 
 ## Installing
 
@@ -34,5 +33,3 @@ ln -sfnv $PWD/committer ~/Applications/bin
 committer # Shows interactive file picker
 committer -a # Automatically commits all files
 ```
-
-
