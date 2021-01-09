@@ -24,7 +24,7 @@ To install committer, follow these steps:
 git clone https://github.com/2kabhishek/committer
 cd committer
 # Setup symlink, make sure target directory is added to PATH
-ln -sfnv $PWD/committer ~/Applications/bin
+ln -sfnv $PWD/committer.sh ~/Applications/bin/committer
 ```
 
 ## Using committer
