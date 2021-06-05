@@ -31,7 +31,7 @@ else
                 break
             fi
         done
-            echo -en "\u001b[36;1mAdd more? (y/n) \u001b[0m"
-            read -r more
+        echo -en "\u001b[36;1mAdd more? (y/n) \u001b[0m"
+        read -r more
     done
 fi
