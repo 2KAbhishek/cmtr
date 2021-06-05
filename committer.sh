@@ -40,18 +40,17 @@ select_files() {
 }
 
 if [[ $1 == "-a" ]]; then
-    echo -e "\u001b[34;1mAuto Comitting: $(pwd | awk -F "/" '{print $NF}') \u001b[0m"
-    for file in $(ls -Atr); do
-        git add "$file"
-        echo -e "\u001b[32;1mAdded $file \u001b[0m"
-        git commit -m "Add $file"
-    done
+    flags="-Atr"
+    batch_commit
+elif [[ $1 == "-an" || $1 == "-na" ]]; then
+    flags="-A"
+    batch_commit
 elif [[ $1 == "-n" ]]; then
-    t=""
+    flags="-A"
     select_files
 elif [[ $1 == "-h" ]]; then
-    echo -e "\t  \tSelect files sorted by time\n\t-a\tAuto commit files\n\t-n\tSelect files sorted by name\n\t-h\tShow help"
+    echo -e "\t  \tSelect files sorted by time\n\t-a\Batch commit files\n\t-n\tSelect files sorted by name\n\t-h\tShow help"
 else
-    t="t"
+    flags="-At"
     select_files
 fi
