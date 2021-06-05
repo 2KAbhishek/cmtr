@@ -30,6 +30,14 @@ ln -sfnv $PWD/committer.sh ~/Applications/bin/committer
 ## Using committer
 
 ```bash
-committer # Shows interactive file picker
-committer -a # Automatically commits all files
+USAGE:
+    committer [FLAGS]
+
+FLAGS:
+                    Select files sorted newest first
+    -a              Batch commit files oldest first
+    -n              Select files sorted by name
+    -an | -na       Batch commit files sorted by name
+    -h              Show help
+
 ```
