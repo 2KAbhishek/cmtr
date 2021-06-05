@@ -28,4 +28,19 @@ select_files() {
         echo -en "\u001b[36;1mAdd more? (y/n) \u001b[0m"
         read -r more
     done
+}
+
+if [[ $1 == "-a" ]]; then
+    echo -e "\u001b[34;1mAuto Comitting: $(pwd | awk -F "/" '{print $NF}') \u001b[0m"
+    for file in $(ls -Atr); do
+        git add "$file"
+        echo -e "\u001b[32;1mAdded $file \u001b[0m"
+        git commit -m "Add $file"
+    done
+elif [[ $1 == "-n" ]]; then
+    t=""
+    select_files
+else
+    t="t"
+    select_files
 fi
