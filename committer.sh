@@ -26,8 +26,10 @@ select file in $(ls -At); do
     if [ -z "$msg" ]
     then
         git commit -m "Add $file"
+        continue
     else
         git commit -m "$msg"
+        continue
     fi
 
     done
