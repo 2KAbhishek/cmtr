@@ -40,6 +40,8 @@ if [[ $1 == "-a" ]]; then
 elif [[ $1 == "-n" ]]; then
     t=""
     select_files
+elif [[ $1 == "-h" ]]; then
+    echo -e "\t  \tSelect files sorted by time\n\t-a\tAuto commit files\n\t-n\tSelect files sorted by name\n\t-h\tShow help"
 else
     t="t"
     select_files
