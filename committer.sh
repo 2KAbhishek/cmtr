@@ -49,7 +49,11 @@ elif [[ $1 == "-n" ]]; then
     flags="-A"
     select_files
 elif [[ $1 == "-h" ]]; then
-    echo -e "\t  \tSelect files sorted by time\n\t-a\Batch commit files\n\t-n\tSelect files sorted by name\n\t-h\tShow help"
+    echo -e "\t  \t\tSelect files sorted newest first"
+    echo -e "\t-a \t\tBatch commit files oldest first"
+    echo -e "\t-n\t\tSelect files sorted by name"
+    echo -e "\t-an | -na \tBatch commit files sorted by name"
+    echo -e "\t-h\t\tShow help"
 else
     flags="-At"
     select_files
