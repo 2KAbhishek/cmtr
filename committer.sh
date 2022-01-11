@@ -4,8 +4,9 @@ batch_commit() {
     echo -e "\u001b[34;1mBatch Comitting: $(pwd | awk -F "/" '{print $NF}') \u001b[0m"
     for file in $(ls "$flags"); do
         git add "$file"
-        echo -e "\u001b[32;1mAdded $file \u001b[0m"
-        git commit -m "Add $file"
+        echo -e "\u001b[32;1mAdded $file$suffix\u001b[0m"
+        git commit -m "Add $file$suffix"
+        echo "$suffix"
     done
 }
 
@@ -39,12 +40,14 @@ select_files() {
     done
 }
 
+suffix="$2"
+
 if [[ $1 == "-a" ]]; then
     flags="-Atr"
-    batch_commit
+    batch_commit "$flags" "$suffix"
 elif [[ $1 == "-an" || $1 == "-na" ]]; then
     flags="-A"
-    batch_commit
+    batch_commit "$flags" "$suffix"
 elif [[ $1 == "-n" ]]; then
     flags="-A"
     select_files
@@ -54,6 +57,7 @@ elif [[ $1 == "-h" ]]; then
     echo -e "\t-n\t\tSelect files sorted by name"
     echo -e "\t-an | -na \tBatch commit files sorted by name"
     echo -e "\t-h\t\tShow help"
+    echo -e "\t [suffix]\tAdd suffix to commit message"
 else
     flags="-At"
     select_files
