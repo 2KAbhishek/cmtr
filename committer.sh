@@ -57,7 +57,7 @@ elif [[ $1 == "-h" ]]; then
     echo -e "\t-n\t\tSelect files sorted by name"
     echo -e "\t-an | -na \tBatch commit files sorted by name"
     echo -e "\t-h\t\tShow help"
-    echo -e "\t [suffix]\tAdd suffix to commit message"
+    echo -e "\t[suffix]\tAdd suffix to commit message"
 else
     flags="-At"
     select_files
