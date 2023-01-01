@@ -2,7 +2,7 @@
 
 batch_commit() {
     echo -e "\u001b[34;1mBatch Comitting: $(pwd | awk -F "/" '{print $NF}') \u001b[0m"
-    for file in $(ls "$flags"); do
+    for file in *; do
         git add "$file"
         echo -e "\u001b[32;1mAdded $file$suffix\u001b[0m"
         git commit -m "Add $file$suffix"
@@ -15,7 +15,7 @@ select_files() {
     while [[ "$more" == "Y" || "$more" == "y" ]]; do
         PS3=$(echo -en "\u001b[34;1m=> Enter file number: \u001b[0m")
         echo -en "\u001b[29;1m"
-        select file in $(ls "$flags"); do
+        select file in *; do
             echo -en "\u001b[31;1mAdd $file? (y/n) \u001b[0m"
             read -r input
             if [[ "$input" == "Y" || "$input" == "y" ]]; then
@@ -43,14 +43,7 @@ select_files() {
 suffix="$2"
 
 if [[ $1 == "-a" ]]; then
-    flags="-Atr"
-    batch_commit "$flags" "$suffix"
-elif [[ $1 == "-an" || $1 == "-na" ]]; then
-    flags="-A"
-    batch_commit "$flags" "$suffix"
-elif [[ $1 == "-n" ]]; then
-    flags="-A"
-    select_files
+    batch_commit
 elif [[ $1 == "-h" ]]; then
     echo -e "\t  \t\tSelect files sorted newest first"
     echo -e "\t-a \t\tBatch commit files oldest first"
@@ -59,6 +52,5 @@ elif [[ $1 == "-h" ]]; then
     echo -e "\t-h\t\tShow help"
     echo -e "\t[suffix]\tAdd suffix to commit message"
 else
-    flags="-At"
     select_files
 fi
