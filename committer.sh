@@ -39,17 +39,13 @@ select_files() {
     done
 }
 
-suffix="$2"
-
 if [[ $1 == "-a" ]]; then
     batch_commit
 elif [[ $1 == "-h" ]]; then
     echo -e "\t  \t\tSelect files sorted newest first"
     echo -e "\t-a \t\tBatch commit files oldest first"
-    echo -e "\t-n\t\tSelect files sorted by name"
     echo -e "\t-an | -na \tBatch commit files sorted by name"
-    echo -e "\t-h\t\tShow help"
-    echo -e "\t[suffix]\tAdd suffix to commit message"
+    echo -e "\t-h\t\tShow this help"
 else
     select_files
 fi
