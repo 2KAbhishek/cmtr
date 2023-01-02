@@ -1,5 +1,13 @@
 #!/bin/bash
 
+backup_commit() {
+    folder="$(pwd | awk -F "/" '{print $NF}')"
+    timestamp=$(date +"%Y-%m-%d %T")
+    echo -e "\u001b[34;1mComitting Backup for $folder: \u001b[0m"
+    git add .
+    git commit -m "$folder backup: $timestamp"
+}
+
 batch_commit() {
     echo -e "\u001b[34;1mBatch Comitting: $(pwd | awk -F "/" '{print $NF}') \u001b[0m"
     for file in *; do
@@ -9,7 +17,7 @@ batch_commit() {
     done
 }
 
-select_files() {
+select_commit() {
     more="Y"
     while [[ "$more" == "Y" || "$more" == "y" ]]; do
         PS3=$(echo -en "\u001b[34;1m=> Enter file number: \u001b[0m")
@@ -41,11 +49,13 @@ select_files() {
 
 if [[ $1 == "-a" ]]; then
     batch_commit
+elif [[ $1 == "-b" ]]; then
+    backup_commit
 elif [[ $1 == "-h" ]]; then
     echo -e "\t  \t\tSelect files sorted newest first"
     echo -e "\t-a \t\tBatch commit files oldest first"
     echo -e "\t-an | -na \tBatch commit files sorted by name"
     echo -e "\t-h\t\tShow this help"
 else
-    select_files
+    select_commit
 fi
