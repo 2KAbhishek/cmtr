@@ -14,7 +14,7 @@ select_files() {
     while [[ "$more" == "Y" || "$more" == "y" ]]; do
         PS3=$(echo -en "\u001b[34;1m=> Enter file number: \u001b[0m")
         echo -en "\u001b[29;1m"
-        select file in *; do
+        select file in $(git diff --name-only); do
             echo -en "\u001b[31;1mAdd $file? (y/n) \u001b[0m"
             read -r input
             if [[ "$input" == "Y" || "$input" == "y" ]]; then
