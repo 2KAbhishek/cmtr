@@ -4,9 +4,8 @@ batch_commit() {
     echo -e "\u001b[34;1mBatch Comitting: $(pwd | awk -F "/" '{print $NF}') \u001b[0m"
     for file in *; do
         git add "$file"
-        echo -e "\u001b[32;1mAdded $file$suffix\u001b[0m"
-        git commit -m "Add $file$suffix"
-        echo "$suffix"
+        echo -e "\u001b[32;1mAdded $file\u001b[0m"
+        git commit -m "add: $file"
     done
 }
 
@@ -28,7 +27,7 @@ select_files() {
             echo -en "\u001b[32;1m=> Enter commit message: \u001b[0m"
             read -r msg
             if [ -z "$msg" ]; then
-                git commit -m "Add $file"
+                git commit -m "add: $file"
                 break
             else
                 git commit -m "$msg"
