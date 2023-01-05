@@ -47,15 +47,25 @@ select_commit() {
     done
 }
 
+sync_commit() {
+    echo -e "\u001b[34;1mSyncing... \u001b[0m"
+    git pull
+    backup_commit
+    git push
+}
+
 if [[ $1 == "-a" ]]; then
     batch_commit
 elif [[ $1 == "-b" ]]; then
     backup_commit
+elif [[ $1 == "-s" ]]; then
+    sync_commit
 elif [[ $1 == "-h" ]]; then
-    echo -e "\t  \t\tSelect files sorted newest first"
-    echo -e "\t-a \t\tBatch commit files oldest first"
-    echo -e "\t-an | -na \tBatch commit files sorted by name"
-    echo -e "\t-h\t\tShow this help"
+    echo -e "\t   \t\t Select changed files and commit"
+    echo -e "\t-a \t\t Commit all files in seperate commits"
+    echo -e "\t-b \t\t Commit all files in a backup commit"
+    echo -e "\t-s \t\t Backup and Sync commit"
+    echo -e "\t-h \t\tShow this help"
 else
     select_commit
 fi
