@@ -13,7 +13,7 @@ batch_commit() {
     for file in *; do
         git add "$file"
         echo -e "\u001b[32;1mAdded $file\u001b[0m"
-        git commit -m "add: $file"
+        git commit -m "feat: add $file"
     done
 }
 
@@ -35,7 +35,7 @@ select_commit() {
             echo -en "\u001b[32;1m=> Enter commit message: \u001b[0m"
             read -r msg
             if [ -z "$msg" ]; then
-                git commit -m "add: $file"
+                git commit -m "feat: add $file"
                 break
             else
                 git commit -m "$msg"
