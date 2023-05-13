@@ -49,7 +49,7 @@ select_commit() {
 
 sync_commit() {
     echo -e "\u001b[34;1mSyncing... \u001b[0m"
-    git pull
+    git pull --rebase --autostash
     backup_commit
     git push
 }
