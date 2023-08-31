@@ -39,8 +39,6 @@ git clone https://github.com/2kabhishek/cmtr
 cd cmtr
 # Setup symlink, make sure target directory is added to PATH
 ln -sfnv $PWD/cmtr.sh ~/.local/bin/cmtr
-# or for a shorter name
-ln -sfnv $PWD/cmtr.sh ~/.local/bin/cmtr
 ```
 
 ## Using cmtr
