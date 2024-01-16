@@ -2,10 +2,10 @@
 
 backup_commit() {
     folder="$(pwd | awk -F "/" '{print $NF}')"
-    timestamp=$(date +"%Y-%m-%d %T")
+    timestamp=$(date +'%d %b %H:%M')
     echo -e "\u001b[34;1mComitting Backup for $folder: \u001b[0m"
     git add .
-    git commit -m "$folder backup: $timestamp"
+    git commit -m "$timestamp"
 }
 
 batch_commit() {
