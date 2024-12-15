@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 backup_commit() {
     folder="$(pwd | awk -F "/" '{print $NF}')"
